@@ -1,0 +1,198 @@
+<!--<p>physician works!</p>
+
+<div class="center">
+
+    <a routerLink="/patient"
+
+      ><button type="button" class="button">Patient</button></a
+
+    >
+
+  </div> -->
+  <!-- <mat-toolbar  color="primary">
+    <span>Card</span>
+  </mat-toolbar> -->
+
+  
+<!-- <mat-toolbar color="primary">
+    <mat-toolbar-row>
+      <button mat-icon-button>
+        <mat-icon (click)="sidenav.toggle();">menu</mat-icon>
+      </button>
+      <h1>CT General Hospital</h1>
+    </mat-toolbar-row>
+  </mat-toolbar> -->
+
+  <!-- <mat-icon (click)="sidenav.toggle();">menu</mat-icon> -->
+  
+  <mat-sidenav-container>
+    <mat-sidenav #sidenav opened="true" mode="side">
+      <mat-nav-list>
+        <a mat-list-item routerLink="/inbox/dashboard" routerLinkActive="list-item-active">Go back to Inbox </a>
+       
+        <a mat-list-item routerLink="../patient-details" routerLinkActive="list-item-active">Go to Patient Details Screen</a> 
+        
+    <!-- <div class="center">
+      <a routerLink="/patient" ><button type="button" class="button">Patient</button></a>
+    </div> -->
+  
+        <a mat-list-item routerLink="../employee-details" routerLinkActive="list-item-active">Go to Employee Details </a>
+       
+        <a mat-list-item routerLink="../patient-registration" routerLinkActive="list-item-active">Go to Patient Registration</a>
+        <a mat-list-item routerLink="../user-management" routerLinkActive="list-item-active">Go to User Management </a>
+        <a mat-list-item routerLink="../patient-history" routerLinkActive="list-item-active">Visit Patient History </a>
+        <a mat-list-item routerLink="../scheduling" routerLinkActive="list-item-active">Scheduling </a>
+        <a mat-list-item routerLink="../homepage" routerLinkActive="list-item-active">Go to Homepage</a>
+      </mat-nav-list>
+    </mat-sidenav>
+
+
+
+    <mat-sidenav-content>
+      <div class="col=2 card-wrapper">
+
+        <mat-card class="example-card">
+          <mat-card-header>
+            <!-- <img
+              src="https://www.freakyjolly.com/wp-content/uploads/2021/07/cropped-cropped-fj-logo-192-removebg-preview-e1625997712615-1.png"
+              mat-card-avatar /> -->
+            <mat-card-title>Upcoming Appointments</mat-card-title>
+            <!-- <mat-card-subtitle>
+              Learn Web Development with Easy Tutorials
+            </mat-card-subtitle> -->
+          </mat-card-header>
+          <!-- <img mat-card-image style="width: 150px;" src="https://angular.io/assets/images/logos/angularjs/AngularJS-Shield.svg" alt="Angular Logo"> -->
+          <mat-card-content>
+            <p> See the appointments for next week</p>
+          </mat-card-content>
+      
+          <mat-card-actions>
+            <button mat-raised-button color="primary" routerLink="../appointments" routerLinkActive="list-item-active">OPEN</button>
+            <!-- <button mat-raised-button color="accent">SHARE</button> -->
+          </mat-card-actions>
+        </mat-card>
+      </div>
+    </mat-sidenav-content>
+
+
+
+
+    <mat-sidenav-content>
+      <div class="col=2 card-wrapper">
+
+        <mat-card class="col=2 example-card">
+          <mat-card-header>
+            <!-- <img
+              src="https://www.freakyjolly.com/wp-content/uploads/2021/07/cropped-cropped-fj-logo-192-removebg-preview-e1625997712615-1.png"
+              mat-card-avatar /> -->
+            <mat-card-title>Notes</mat-card-title>
+            <!-- <mat-card-subtitle>
+              Learn Web Development with Easy Tutorials
+            </mat-card-subtitle> -->
+          </mat-card-header>
+          <!-- <img mat-card-image style="width: 150px;" src="https://angular.io/assets/images/logos/angularjs/AngularJS-Shield.svg" alt="Angular Logo"> -->
+          <mat-card-content>
+            <p> Go to inbox notes and send notes </p>
+          </mat-card-content>
+      
+          <mat-card-actions>
+            <button mat-raised-button color="primary" routerLink="../notes" routerLinkActive="list-item-active">OPEN</button>
+
+          </mat-card-actions>
+        </mat-card>
+      
+      </div>
+    </mat-sidenav-content>
+
+
+
+    <mat-sidenav-content>
+      <div class="card-wrapper">
+
+        <mat-card class="col=2 example-card">
+          <mat-card-header>
+            <!-- <img
+              src="https://www.freakyjolly.com/wp-content/uploads/2021/07/cropped-cropped-fj-logo-192-removebg-preview-e1625997712615-1.png"
+              mat-card-avatar /> -->
+            <mat-card-title>Scheduler</mat-card-title>
+            
+            <!-- <mat-card-subtitle>
+              Learn Web Development with Easy Tutorials
+            </mat-card-subtitle> -->
+          </mat-card-header>
+          <!-- <img mat-card-image style="width: 150px;" src="https://angular.io/assets/images/logos/angularjs/AngularJS-Shield.svg" alt="Angular Logo"> -->
+          <mat-card-content>
+            <p> Go to Scheduler page</p>
+          </mat-card-content>
+      
+          <mat-card-actions>
+            <button mat-raised-button color="primary" routerLink="../scheduler" routerLinkActive="list-item-active">OPEN</button>
+            <!-- <button mat-raised-button color="accent">SHARE</button> -->
+          </mat-card-actions>
+        </mat-card>
+      </div>
+    </mat-sidenav-content>
+
+
+
+
+    <mat-sidenav-content>
+      <div class="card-wrapper">
+
+        <mat-card class="example-card">
+          <mat-card-header>
+            <!-- <img
+              src="https://www.freakyjolly.com/wp-content/uploads/2021/07/cropped-cropped-fj-logo-192-removebg-preview-e1625997712615-1.png"
+              mat-card-avatar /> -->
+            <mat-card-title>Patient visit history</mat-card-title>
+            <!-- <mat-card-subtitle>
+              Learn Web Development with Easy Tutorials
+            </mat-card-subtitle> -->
+          </mat-card-header>
+          <!-- <img mat-card-image style="width: 150px;" src="https://angular.io/assets/images/logos/angularjs/AngularJS-Shield.svg" alt="Angular Logo"> -->
+          <mat-card-content>
+            <p> Go to patient visit history </p>
+          </mat-card-content>
+      
+          <mat-card-actions>
+            <button mat-raised-button color="primary" routerLink="../patient-visit-history" routerLinkActive="list-item-active">OPEN</button>
+
+          </mat-card-actions>
+        </mat-card>
+      
+      </div>
+    </mat-sidenav-content>
+
+    
+
+
+    
+
+
+    
+
+
+
+
+
+    <mat-sidenav-content>
+      <div style="height:88vh">
+        <!-- <router-outlet>
+  
+        </router-outlet> -->
+      </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+
+
+
+  
+
+
+
+  
+
+  
+  
+
+   

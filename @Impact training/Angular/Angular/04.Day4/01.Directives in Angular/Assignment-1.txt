@@ -1,0 +1,18 @@
+Assignment
+~~~~~~~~~~~
+
+1. display product details in multiple display modes as per the user choice.
+
+	a. 		Modes:
+			1.  Details	---	 Table
+			2.  Large Image  ---  Image, Product Name, Price
+			3.  Small Image		----		Image, Product Name, Category, Price 
+			4.  List		----		Product Name, price
+			
+			
+			
+			{pid: 5454, pname  : "Speakers",  ... ,  picture : "Image1.jpg"}
+			
+	b.   Images for each display mode.  
+				Change the mode in click  event.
+				Change the mode in mouse over event.

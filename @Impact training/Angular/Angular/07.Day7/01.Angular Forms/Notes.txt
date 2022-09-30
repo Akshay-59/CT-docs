@@ -1,0 +1,124 @@
+Angular Forms
+~~~~~~~~~~~~
+
+-->  ngModel  --- two way binding
+-->  Data Entry Forms 	---  input, textarea, select
+--> Performing validations in angular forms.	
+			
+	
+1. Template Driven Forms	(*.component.html)
+
+		-->  Use Template Variables	----	form and input elements 
+					<form  #form1="ngForm"  ....>
+					<input  #t1="ngModel"    [(ngModel)]="fname" .... >		
+
+		--> Apply validation attributes to input tags:
+				<input  #t1="ngModel"    [(ngModel)]="fname"    required="true" >		
+				
+				Eg:		required, minLength, maxLength, email, pattern
+		
+		-->   Prepare error message using span with *ngIf
+				<span *ngIf="t1.invalid">Error Message</span>
+		
+		-->  Disable submit button based on form validations		
+				<button  [disabled]="form1.invalid" type="submit">Register</button>
+		
+		Note:  Angular provides properties:	invalid, dirty, 
+					
+		
+
+		
+
+Note: Refer the following link to know more details about regular expressions:
+
+			https://www.w3schools.com/jsref/jsref_obj_regexp.asp	
+ 
+ ----------------------------------------------------------------------------------
+
+
+
+
+2. Model Driven Forms  (*.ts  +  *.html)	
+		--- Called as  Reactive Forms
+		--- ReactiveFormsModule  		---		@angular/forms
+		--- FormsModule  						---		@angular/forms
+		
+		Classes:		FormGroup, FormControl, Validators
+		
+		
+
+Steps
+~~~~~
+1.  Import ReactiveFormsModule module in app.module.ts
+
+		import {  FormsModule, ReactiveFormsModule }	from  '@angular/forms';
+		....
+		imports :   [ BrowserModule, FormsModule, ReactiveFormsModule ]
+		
+		
+2.  In *.component.ts
+
+	-->  Prepare FormGroup with all required controls and corresponding validations 
+
+
+		import { FormGroup, FormControl, Validators  } from '@angular/forms';
+
+		public customerForm : FormGroup = new FormGroup({
+			fname :  new FormControl("", Validators.required),
+			......
+		});		
+		
+
+3.  *.component.html
+~~~~~~~~~~~~~~~~~~~
+
+	--> Bind form tag, input tag and span tag with formgroup and form control properties:
+
+		<form [formGroup]="customerForm" (submit)="submit_click()">
+  
+			  First Name:
+			  <input   formControlName="fname"  />
+			  <span *ngIf="customerForm.controls['fname'].invalid && customerForm.controls['fname'].dirty" class="error">First Name is required</span>
+
+				......................
+      <button [disabled]="customerForm.invalid">Register</button>
+  </fieldset>
+</form>
+
+
+Note:
+
+--> Use [] syntax to accessing form controls in template:
+
+		New Versions (Angular13) :   customerForm.controls['fname']
+		Old Versions 					 :   customerForm.controls.fname
+		
+
+---------------------------------------------------------------------------------
+
+
+Task
+~~~~~
+Create Angular components to create vehicle Registration Form
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+--> implement the following validations using Angular forms concept --- model driven
+	
+
+1. Owner Name 		---     Required
+2. Contact Number  ----	Required , should contain 10 digits
+3. Owner Email   ---   Required, Email
+3. Vehicle Registration Number   ----  Should be proper format ---   (Eg:  TS10AB1234)
+4. Address  :     Required
+5. Model  :   10 characters
+6. Color :     Required 
+7. Year	:	2012 to 2022
+
+
+
+
+
+  
+
+
+
+

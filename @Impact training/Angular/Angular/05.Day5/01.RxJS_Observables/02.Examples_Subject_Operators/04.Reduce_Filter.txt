@@ -1,0 +1,23 @@
+  import { Component, OnInit } from '@angular/core';
+  import { Observable, Subject, of, from, filter, map, reduce } from 'rxjs';
+
+  @Component({
+    selector: 'app-rxjs-demo',
+    templateUrl: './rxjs-demo.component.html',
+    styleUrls: ['./rxjs-demo.component.css']
+  })
+  export class RxjsDemoComponent {
+
+    getData_click()
+    {
+      let observableObj =  of(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+
+      let filteredObj  = observableObj.pipe(
+        filter(x => x % 2 === 1),
+        reduce((acc, one) => acc + one, 0)
+      );
+
+      filteredObj.subscribe(x => console.log(x));
+    }
+}
+

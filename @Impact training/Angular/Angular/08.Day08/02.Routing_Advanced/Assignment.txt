@@ -1,0 +1,22 @@
+Create Angular Application to implement the following pages in SPA model
+
+	1. Home Page   
+	2. Categories Page
+	3. Aboutus Page
+	4. Contact Page
+	5. Login page
+	
+	
+	
+Instructions:
+		1. Home page:		Display images and welcome message
+		2.  Categories Page:	 It display all categories in the form of hyperlinks
+			 --> If the user click on category link, it should navigate to products page and display products belongs to selected category.
+		3. Aboutus page  : 	Display information about the wesite
+		4. Contact Page :  Display contact details
+		5. Login Page:   with basic functionality
+
+		
+			 
+			 
+	

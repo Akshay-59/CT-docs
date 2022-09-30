@@ -1,0 +1,91 @@
+1. Lazy loading modules in Routing
+2. Nested Routes
+
+
+
+Lazy loading modules in Routing
+~~~~~~~~~~~~~~~~~~~~~~~~~
+>	ng  g  m  admin		
+		/admin/admin.module.ts
+		
+		
+>  ng  g   m   admin   --route  admin  --module app.module
+
+			--->   admin module	
+			--->   admin routing module
+			--->   admin component			
+			--->  Register and Generate separate route --- with lazy loading option in  app.routing.module
+			
+				 { path: 'admin', loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule) },
+				 
+				 
+		Note:   In the above lazy loading statement,  admin module is load in the memory when we get the request for admin route. 		 
+
+	
+		CREATE src/app/admin/admin-routing.module.ts (339 bytes)
+		CREATE src/app/admin/admin.module.ts (350 bytes)
+		CREATE src/app/admin/admin.component.html (20 bytes)
+		CREATE src/app/admin/admin.component.spec.ts (619 bytes)
+		CREATE src/app/admin/admin.component.ts (271 bytes)
+		CREATE src/app/admin/admin.component.css (0 bytes)
+		UPDATE src/app/app-routing.module.ts (1214 bytes)
+
+----------------------------------------------------------------------------------------------------------------
+
+Admin.Routing.Module
+
+		const routes: Routes = [
+		  { path: '', component: AdminComponent },
+		  { path: 'projects', component: ProjectsComponent },
+		  { path: 'branches', component: BranchesComponent }
+		];
+
+
+Create hyperlink for child routes
+
+
+		  <a [routerLink]="['/admin']">Admin</a>  
+		  <a [routerLink]="['/admin/projects']">Projects</a>  
+		  <a [routerLink]="['/admin/branches']">Branches</a>  
+		  
+-----------------------------------------------------------------------------------------------------		  
+
+
+Nested Routes 
+~~~~~~~~~~~~~
+
+
+1.  Create child routes as children in route configuation 
+
+		const routes: Routes = [
+		  { path: '', component: AdminComponent,
+		  children: [
+			{path: '', redirectTo: 'projects', pathMatch : "full"},
+			{ path: 'projects', component: ProjectsComponent },
+			{ path: 'branches', component: BranchesComponent }
+		  ]
+		}];
+		
+		
+2.  Create the hyperlinks inside the admin component
+
+
+	<a [routerLink]="['projects']">Projects</a>  |
+	<a [routerLink]="['branches']">Branches</a>
+
+
+
+3.  Add separate router-outlet  in admin component
+
+		<router-outlet></router-outlet>
+
+----------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+

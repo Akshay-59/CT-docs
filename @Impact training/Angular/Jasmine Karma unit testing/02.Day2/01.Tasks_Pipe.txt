@@ -1,0 +1,19 @@
+Tasks
+~~~~~~
+1. Create a pipe name -- gradepipe  that returns the grade string based on the grade number. 
+
+	(You have already created previously  in custom pipe concept.  Please refer)
+	
+		1 ---	 Outstanding
+		2 ---   Excellent
+		3 ---   Good
+		4 ---   Average		
+		5 ---  Poor
+	
+		
+	TestCases:		Write the test cases for that grade pipe.	
+
+		-->  3 test cases valid grades
+		-->  2 test cases  for invalid grades
+		
+		

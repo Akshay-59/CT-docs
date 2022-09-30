@@ -1,0 +1,48 @@
+<div style="padding: 10px;">
+<h3 align="center">Angular Templates (UI) Development using Angular Material</h3>
+<hr/>
+
+<mat-form-field>
+    <input  matInput [(ngModel)]="s1" placeholder="Deptno" />
+</mat-form-field>
+
+<mat-form-field>
+  <input  matInput [(ngModel)]="s2" placeholder="Dept Name" />
+</mat-form-field>
+
+<mat-form-field>
+  <input  matInput [(ngModel)]="s3" placeholder="Dept Location" />
+</mat-form-field>
+
+
+
+<br/><br/>
+<button mat-raised-button color="accent" (click)="getDepts()">Get Dept</button>
+<button mat-raised-button color="primary" (click)="addDept()">Add Dept</button>
+<button mat-raised-button color="warn" (click)="editDept()" >Update Dept</button>
+<br/><br/>
+
+
+<mat-card *ngFor="let item of depts"
+          style="text-align:center; margin:5px; background-color:lightyellow; float:left; width:150px;">
+    <span  style="font-size:20px; color:Blue;">
+            {{item.Deptno}} - {{item.Dname }} </span>  <br/>
+    <span style="color:green;"> Location : {{item.Loc }} </span> <br/>
+
+    <button mat-mini-fab color="accent"
+            (click)="removeDept(item.Deptno)">
+       <mat-icon>delete</mat-icon> 
+    </button>
+
+    <button mat-mini-fab color="primary"
+            (click)="selectDept(item.Deptno)">
+       <mat-icon>thumb_up</mat-icon> 
+
+    </button>
+</mat-card>
+
+
+
+
+
+</div>

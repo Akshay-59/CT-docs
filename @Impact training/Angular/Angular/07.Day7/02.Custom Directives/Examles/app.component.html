@@ -1,0 +1,28 @@
+<h3>Working with custom directives</h3>
+<hr/>
+
+<p appHighLighter>This is test paragraph to verify the custom directives. This is test paragraph to verify the custom directives. This is test paragraph to verify the custom directives.  This is test paragraph to verify the custom directives. This is test paragraph to verify the custom directives.</p>
+
+<p [appHighLighter]="'Aqua'">This is test paragraph to verify the custom directives. This is test paragraph to verify the custom directives. This is test paragraph to verify the custom directives.  This is test paragraph to verify the custom directives. This is test paragraph to verify the custom directives.</p>
+
+
+<p [appHighLighter]="'Lime'">This is test paragraph to verify the custom directives. This is test paragraph to verify the custom directives. This is test paragraph to verify the custom directives.  This is test paragraph to verify the custom directives. This is test paragraph to verify the custom directives.</p>
+
+<hr/>
+
+<div *appIsAdmin="true" style="border:1px solid gray;">
+      <h1>DIV1</h1>
+      <h3>This is admin panel which contains options that admin can access </h3>
+      <h3>This is admin panel which contains options that admin can access </h3>
+      <h3>This is admin panel which contains options that admin can access </h3>
+      <h3>This is admin panel which contains options that admin can access </h3>
+</div>
+
+<div *appIsAdmin="false" style="border:1px solid gray;">
+  <h1>DIV2</h1>
+  <h3>This is admin panel which contains options that admin can access </h3>
+  <h3>This is admin panel which contains options that admin can access </h3>
+  <h3>This is admin panel which contains options that admin can access </h3>
+  <h3>This is admin panel which contains options that admin can access </h3>
+</div>
+

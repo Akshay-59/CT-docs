@@ -1,0 +1,60 @@
+Angular Material Tutorial
+~~~~~~~~~~~~~~~~~~~~
+--> Angular Material is a UI component library for Angular developers. 
+--> Angular Material components help in constructing attractive web pages.
+--> It helps in creating faster, beautiful, and responsive websites. 
+--> It is implemented by the Google Material Design.
+
+
+Features of Angular Material
+~~~~~~~~~~~~~~~~~~~~~~~
+--> In-built responsive designing
+--> Standard CSS with minimal efforts
+--> Includes common user interface controls such as buttons, check boxes, and text fields.
+--> Includes enhanced and specialized features like cards, toolbar etc..
+--> Cross-browser and  reusable web components.
+
+
+Environment Setup
+~~~~~~~~~~~~~~~~~
+-->   ng  add  @angular/material
+-->  	The command will install Angular Material, the Component Dev Kit (CDK), Angular Animations
+
+Note: Make sure that Angular version number should match with Angular Material Version number. 
+		  Use the following command to install specific version
+
+			>  ng  add  @angular/material@13.2.0
+
+
+Usage
+~~~~~
+
+Step1:
+---------
+
+1.  Add an extra module with name "MyMaterialModule"
+
+2.  Import all required material modules for material UI components
+
+import {  MatButtonModule }  from '@angular/material/button';
+… 
+@NgModule ({
+	.... 
+	imports: [..., MatButtonModule, …] ,
+	exports :  [MatButtonModule,.....]
+})
+
+
+3.  Import MyMaterialModule in AppModule
+
+4. Use all angular material component in application 
+
+<button mat-button>
+<button mat-raised-button  color=“accent”>
+<button mat-stroked-button color=“primary”>
+<button mat-stroked-button color=“warn”>
+
+
+
+
+ 

@@ -1,0 +1,251 @@
+Advanced features in Angular Routing 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+
+
+
+Passing parameters to route   and fetching params from route
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Steps:
+	1.   Configure the route with parameter	(app-routing.module.ts)
+	
+			Eg: 	
+					{ path : "details", component: DetailsComponent}   // without parameter
+					{ path : "details/:id", component: DetailsComponent}  // with parameter
+
+2. 	Create hyperlink with id (route parameter):  (emp-list.component.html)
+
+			<a [routerLink]=" ['/Details',  54615]  "> 	Details  <a> 
+			
+			
+			Final url :			http://localhost:4200/Details/54615
+			
+
+3. Fetching route params from a route  (emp-details.component.ts)
+
+		ActivatedRoute  
+			---  Service class	
+			---  from   '@angular/router'
+			---  Used to read route parameters
+			
+		constructor(private  route:ActivatedRoute){ }
+			
+	
+Using snapshot and params prop
+
+		this.route.snapshot.params["id"];
+		
+
+----------------------------------------------------------------------------------------------------
+
+Library Information about Routing 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Classes involved in routing:
+
+	Library	:		'@angular/router';
+	Classes:	
+						Routes
+						RouterModule
+						ActivatedRoute  ---  Service Class
+						Router --- Service Class
+						CanActivate 
+						CanDeactivate
+						ActivatedRouteSnapshot
+						RouterStateSnapshot
+						Resolve
+	
+
+
+How to navigate through code? 
+How to do pogrammatic navigation?
+
+	ActivatedRoute  
+			---  Service class	
+			---  Used to read route parameters
+	
+	Router  
+			--- Service Class
+			--- used to implement pogrammatic navigation
+			
+			
+	<a [routerLink]=" ['/Details',  54615]  "> 	Details  <a> 
+			
+				Eg:   
+					this.router.navigate(['/Emps']);
+					this.router.navigate(['/Details', 1025]);
+
+---------------------------------------------------------------------------------------------------
+
+
+Implement  Authentication in Angular Application
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+1.  Create CanActivate Guard Service	:		AuthGuardService
+2.  Apply canActivate guard on the route to which you want to apply security 
+3.  Create Login component 
+			
+
+
+
+Facebook
+~~~~~~~~
+	1.  Request:			https://www.facebook.com		
+		Response:		go to login page		
+		
+	2.  Request :  		submit uid, pwd  to login page		 
+		 Response:		Valid :		Go to home page
+								Invalid:     error message  -- login page
+									
+	3.  Request:			Go to another tab, type the below url:
+								https://www.facebook.com/photos
+		 Response:		Photos page
+								Signout
+									
+	4.  Request:			https://www.facebook.com/photos			
+		 Response:		go to login page
+
+	5.  Request :  		submit uid, pwd  to login page		 		
+								Photos Page									
+		
+									
+			
+Q1:  After login page, what will be the next page?
+					Home Page
+					Photos
+					Videos
+					
+					
+					
+Q2: How to identify --- the user authentication?  		
+
+Q3:  In Angular, which file we implement the logic to verify that whether the user is authenticated or not?
+
+
+
+
+
+
+
+
+
+			
+
+			
+			
+
+
+
+
+Steps to Implement 
+~~~~~~~~~~~~~~
+						
+1.  CanActivate Guard --- Service Class
+
+	---     A service class that we need create
+	---		Executes before the selected route is process by angular
+	---		Executes logic that will verify whether the user is authorized or not
+			
+					-->  sessionStorage.getItem("AUTH_TOKEN")
+							-->  Valid User / Authenticated User --	proceed to process that route
+							-->  Invalid User  --		redirect to Login Component 
+											this.router.navigate(['/Login']);							
+	
+		
+				
+2.    	Apply AuthGuardService on the route to which you need security 
+
+			{ 	path :  "Emps",   
+				component: EmpsComponent,   
+				canActivate :  [AuthGuardService]  },
+
+
+3.   Login
+
+		a.   Verify the credentials  uid/pwd 	----		check with static/db/json/rest api/
+		b.    valid  user:
+		
+				--  create session token 
+						sessionStorage.setItem("AUTH_TOKEN",  this.uid);
+				--	redirect to  requested route /  default route								
+								this.router.navigate(['/']);				
+		c.    invalid  user:			
+				error message
+
+-------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+1. Applying Deactivate Guard on Routing
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+1. CanActivate guard  on routes
+
+	---  Before component is processing 
+
+2. CanDeactivate guard  on routes
+
+	---  After component is processed
+	---  at the time of unloading
+	---  At the time of navigate to other route from the current one.
+	
+	
+	
+	----------------------------------------------------------------------------
+	
+	
+Pre-fetching data using resolver
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+--> Fetching the required data for the component before component is render in the browser. 
+
+
+-->	Order of Processing (without resolver):
+			a.  Request come to the route			
+			b.  At the time of  component loading, 
+					-->  Fetch the data from db
+			c.  Then component render / processed
+
+-->	Order of Processing (with resolver):
+			a.  Request come to the route
+			b.  Fetch the data from db	---- done by resolver
+			c.  Then component render / processed
+		
+		
+Steps to implement
+~~~~~~~~~~~~~~~~
+1.   Create Route Resolver service that returns required data.
+
+		export class EmpListResolveService implements Resolve<any[]>
+		{
+			....
+			resolve(route: ActivatedRouteSnapshot,
+						state: RouterStateSnapshot): Observable<any[]> {
+				return this.dataService.getData();
+				}
+		}
+
+2.   Apply route resolve  service on the route 
+
+		 { path :  "Emps2", component: Emps2Component, resolve: {emps: EmpListResolveService}  },
+
+3.   Component can just read the data from the route data using ActivatedRoute
+
+	
+	this.emps=this.route.snapshot.data['emps'];
+	
+		
+		
+		
+		
+
+----------------------------------------------------------------------------------------------
+

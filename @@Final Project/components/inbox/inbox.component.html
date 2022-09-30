@@ -1,0 +1,64 @@
+<!-- <h1 text-align="center">Welcome to Inbox page</h1> -->
+
+
+<!-- <mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <button mat-icon-button>
+      <mat-icon (click)="sidenav.toggle();">menu</mat-icon>
+    </button>
+    <h1>CT General Hospital</h1>
+  </mat-toolbar-row>
+</mat-toolbar> -->
+<!-- <mat-icon (click)="sidenav.toggle();">menu</mat-icon> -->
+
+<mat-sidenav-container>
+  <mat-sidenav #sidenav opened="true" mode="side">
+    <mat-nav-list>
+      
+      <a mat-list-item routerLink="../physician" routerLinkActive="list-item-active">Physician/Nurse</a>
+        
+     
+      <a mat-list-item routerLink="../patient" routerLinkActive="list-item-active">Patient</a>
+      
+<!-- <div class="center">
+ <a routerLink="/patient"><button type="button" class="button">Patient</button></a>
+</div> --> 
+      
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <div style="height:88vh">
+      <!-- <router-outlet>
+
+      </router-outlet> -->
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+
+
+
+<!-- <mat-toolbar color="primary">
+    <mat-toolbar-row>
+      <button mat-icon-button>
+        <mat-icon ></mat-icon>
+      </button>
+      <h1>CT General Hospital</h1>
+    </mat-toolbar-row>
+  </mat-toolbar>
+  <!- <div style="text-align:center">
+  <h1>CT General Hospital</h1>
+  </div> -->
+  <!-- <nav >
+    <br/>  <br/>  <br/> <br/>
+    <a routerLink="/physician-nurse"
+    ><button type="button" class="button">Physician/Nurse</button></a>
+    <! <a routerLink="../physician/nurse" >Physician/Nurse</a> -->
+   <!-- <br/>  <br/>  <br/> <br/>
+    <a routerLink="/patient"><button type="button" class="button">Patient</button></a>
+  </nav> --> 
+  <!-- <div class="center">
+    <a routerLink="/patient"><button type="button" class="button">Add Patient</button></a>
+  </div> --> 
+
+  

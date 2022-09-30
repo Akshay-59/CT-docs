@@ -1,0 +1,15 @@
+
+
+Implement following requirement in order to filter the response data
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+--> Add the required methods in data service file and call them in component to perform the following operations:
+
+
+	1.  Display employee details based on the job
+	2.  Display Manager names works in the given department 
+	3.  Display all employee names and along with designation
+	4.  Display employees who not working in deptno - 10
+	5.  Sort the employee based on the salary
+
+

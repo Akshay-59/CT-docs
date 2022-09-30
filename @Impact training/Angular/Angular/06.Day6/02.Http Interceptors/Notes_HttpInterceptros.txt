@@ -1,0 +1,152 @@
+Working with Http Interceptors
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+Introduction:
+	-->  Http Interceptors are used to mutate/modify http requests to the server before they leave your browser. 
+	--> And also used to transform the responses from the server before they reach the user.
+	
+	
+	
+	
+
+Adding Authorization token for specific request:
+	
+	const hardcodedToken = '1d38d128-0671-4121-8084-f6332a992a40';
+    const header = { 'Authorization' : `Bearer ${hardcodedToken}`};    
+	
+	return this.httpObj.get(this.url);
+	return this.httpObj.get(this.url, { headers: header});
+	return this.httpObj.post(this.url, dataObj, { headers: header});	
+-----------------------------------------------------------------------------------------------------------------
+
+
+
+Requirement :    Adding  Authorization token for all requests in the application.
+
+Solution :  HttpInterceptor  concept
+
+
+How to implement?
+
+
+
+Stpes to create custom HTTP Interceptors
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+1. Create custom http interceptor service class
+
+	ng  g   s   CustomHttpInterceptor
+
+
+2. Implement HttpInterceptor interface
+				---  Intercept()  method				
+				
+	@Injectable()
+	export class CustomHttpInterceptor implements HttpInterceptor 
+	{
+		intercept(req: HttpRequest<any>, next: HttpHandler): 		Observable<HttpEvent<any>> 
+		{
+		   // code to intercept the request	
+       		return next.handle(req);
+		}
+}
+					
+				
+3. Register the interceptor to the root application injector
+
+
+@NgModule({
+  declarations: [  AppComponent  ],
+  imports: [
+    BrowserModule,  HttpClientModule
+  ],
+  providers: [
+    			{provide : HTTP_INTERCEPTORS, useClass: CustomHttpInterceptor, multi:true}
+  ],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
+---------------------------------------------------------------------------------------------
+
+
+How to handle different types of errors and show a meaningful message to the user
+
+
+error:	HttpErrorResponse 
+	
+			---  message	:   default system generated messages
+			---  status		:	response status codes. (Eg:   404,500,....)
+	
+	
+	
+	
+  catchError((error: HttpErrorResponse) => {
+
+		
+		switch(error.status)
+		{
+				case 404 :     .........;
+				case 500 :     .........;
+				default :     .........;			
+		}
+		
+		if(error.status == 500)
+		{		
+		
+		}
+		else
+		{
+			
+			
+		}
+		
+		
+		
+	 
+	  
+  })
+  
+  ------------------------------------------------------------------
+  
+  Maintain the folder structure of Angular Application
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  
+  >	
+		[src]
+			---	  [app]
+					
+						[services]
+							---	 data.service.ts							
+							
+						[models]	
+							---		dept.ts
+							---		emp.ts
+							
+						[utilities]	
+							---		date.util.ts
+							---		array.util.ts
+							
+	 					
+						
+			---	  [assets]
+			
+  
+ >	  	ng  g  s  data  		
+		ng  g  s  data   --skip-tests				(skip the *.spec.ts file)	
+ 
+			data.service.ts
+			data.service.spec.ts
+  
+  >	ng  g  s  /services/test3  	--skip-tests
+  
+  
+ Generate model classes:
+
+	>		ng g  class  /models/emp  
+	
+	
+ Generate utility classes  classes:	
+	>		ng g  class  /utilities/dateUtil
+
+			data-util.ts
+	
+	
+	

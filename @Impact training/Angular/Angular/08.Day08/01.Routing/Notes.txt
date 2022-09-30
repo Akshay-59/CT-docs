@@ -1,0 +1,117 @@
+
+				Routing in Angular
+				~~~~~~~~~~~~~~~~
+				
+What & Why routing?
+
+	-->  Routing 	
+	
+			-->  mapping incoming requests with corresponding components. 			
+			
+					/Login		---			LoginComponent
+					/Emps		---			EmpsComponent
+					.....
+
+
+	-->  Regular  Navigation 
+		
+						<a href="login.html">Login</a>
+						<a href="login.php">Login</a>
+						....
+		Angular Navigation
+						
+						<a href="LoginComponent">Login</a>	--- Not applicable
+						
+						<a href="/Login">Login</a>	 
+						<a href="/Emps">Employees</a>	 
+						
+				-> Using	routing concept to implement navigation. 			
+				
+
+Angular Router features
+~~~~~~~~~~~~~~~~~~~~~
+	--> Angular provides required modules, classes, directives, components  to implement routing. 
+	
+			1.  RouterModule
+			2.  Routes
+			3.  RouterLink
+			4.  RouterOutlet
+			5.  ActivatedRoute
+	
+	
+	--> We need to provide route details (route configuration) so that angular will perform actions accordingly. 
+	
+	--> If any request comes to angular application, angular framework will fetch the component details based on route configuration.
+	
+	--> It process desired/requested component and render output in browser. 
+	
+	
+Routing Implementation
+~~~~~~~~~~~~~~~~~~~~~
+
+Steps:		
+1. Configure the routes
+2. Register the routes
+3. Prepare Hyperlniks
+4. Prepare router-outlet
+
+					
+	Steps	
+	1.    Prepare the routes 
+	
+			const  appRoutes:Routes = [
+					{  path   :   "",    component :  HomeComponent   },
+					{  path   :   "Login",    component :  LoginComponent   },
+					{  path   :   "Emps",    component :  EmpsComponent   },
+					......
+			];
+	
+	2.    Register the routes	
+	
+			@NgModule({
+				....
+				....
+				imports  :   [  RouterModule.forRoot( appRoutes )   ]				
+			})
+			
+			
+	
+		
+Router links and router outlet			
+~~~~~~~~~~~~~~~~~~~~~~~
+Step3:
+	<a  [routerLink]=" ['/'] "> Home </a>
+	<a  [routerLink]=" ['/Emps'] "> Employees </a>
+	<a  [routerLink]=" ['/Login'] "> Employees </a>
+	.....
+	
+
+Step4:
+	<router-outlet></router-outlet>
+
+Note:  router-outlet is like a placeholder where the selected component results should render/display. 
+
+
+-----------------------------------------------------------------------------
+
+
+Passing parameters to route
+~~~~~~~~~~~~~~~~~~~~~~~~
+	
+	-->		{path : “details/:id", component: DetailsComponent}
+
+	-->		<a [routerLink]="['/Details‘,12345]"> 	Details  <a> 
+
+
+Fetching params from a route
+
+		ActivatedRoute  
+			---  Service class	
+			---  Used to read route parameters
+	
+Using snapshot and params prop
+
+	this.route.snapshot.params["id"]
+
+----------------------------------------------------------------------------------------------------
+

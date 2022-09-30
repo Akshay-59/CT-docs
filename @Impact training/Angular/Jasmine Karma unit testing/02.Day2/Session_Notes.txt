@@ -1,0 +1,109 @@
+Writing a deep integration test to test a component and its template using its child components
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+import { By } from '@angular/platform-browser';
+
+  it('renders child component - dept-details', () => {
+    const childComponent = fixture.debugElement.query(By.css("app-dept-details"));
+    expect(childComponent).toBeTruthy();
+  });
+  
+  
+  
+    it('perform child component event through parent - onDeptRemove', () => {
+    const dno = 10;
+    const childComponent = fixture.debugElement.query(By.css("app-dept-details"));
+ 
+    childComponent.triggerEventHandler('onDeptRemove',10);
+ 
+    const result = component.deptsArray.findIndex(item => item.deptno === dno);
+    expect(result).toBe(-1);
+  });
+  
+  
+  
+  
+
+Component Instance
+~~~~~~~~~~~~~~~~~
+
+	Description :   instance of the specified component.  Used to access the members of the Component class.
+
+	Usage:			
+	
+				let component: DeptsComponent;
+				component = fixture.componentInstance;
+
+				component.deptsArray
+				component.getData_click()
+				etc....
+
+
+ComponentFixture 
+~~~~~~~~~~~~~~~~~
+
+Description :  
+		--> used to testing / debugging component.
+		--> quering component details especially template information. 
+
+
+Usage:
+		
+		let fixture: ComponentFixture<DeptsComponent>;
+		fixture = TestBed.createComponent(DeptsComponent);
+		
+		Members:		
+			a.  componentInstance	:	Get the instance of the root component class.
+			
+			b.  nativeElement property:  nativeElement returns a reference to the DOM element						
+						fixture.nativeElement.querySelector("input");
+			
+			c.   debugElement:  returns  that contains all kinds of references and methods relevant to investigate an element or component 
+						fixture.debugElement.query(By.css("app-dept-details"));
+
+						
+			d.   detectChanges()  method	:		Trigger a change detection cycle for the component.		
+			
+		
+
+		
+ Details about nativeElement and debugElement
+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 1.  nativeElement
+			a.   querySelector("input");
+			b.   querySelectorAll("p");
+			
+2.   debugElement
+			a.  properties	---	  	to access all the properties
+			b.  query			----	to get first matching element 
+			c.  queryAll		-----	to get all matching element
+			d.  triggerEventHandler() 	----		to trigger the event	
+ 
+-----------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+Testing Services, Pipes
+~~~~~~~~~~~~~~~~~~~
+
+1.  Testing Pipes   (Isolated testing)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+ng  test    --include  "src/app/gender.pipe.spec.ts"
+
+---> We need to test the transform method input and output.
+
+---> Write separate test cases for possible inputs.
+			Eg:			a.    m --	male
+							b.    f --	female
+							c.    M/F   ----   male/female 
+							
+---> Write separate test cases for invalid input. 
+
+
+

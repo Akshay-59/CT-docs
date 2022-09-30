@@ -1,0 +1,168 @@
+Configure JSON Server
+~~~~~~~~~~~~~~~~~~~~
+
+>	npm  	i 	-g 	json-server
+
+>  Prepare *.json  (db_depts.json)
+
+	{
+		"depts" :  [],
+		"emps" : []
+	}
+
+
+>	json-server  --watch db_depts.json
+>	json-server  --watch --id deptno db_depts.json
+
+
+	http://localhost:3000
+	http://localhost:3000/depts
+	http://localhost:3000/emps
+
+------------------------------------------------------------------------------------------------
+
+Configure JSON Server  Authentication
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+1. install required packages
+
+		a.		npm i  -g json-server
+		b.		npm i  -g  json-server-auth
+		c.		npm i  -g express
+		
+		
+		npm   i   -g    express, json-server, json-server-auth
+		
+		
+2.  Create db_users.json file		(File path :  E:\JSON_SERVER)
+
+			{
+				"users" :  []
+			}
+			
+3.  Navigate to the folder where you save the *.json and start the server:
+	
+		E:\JSON_SERVER>   json-server  --watch  db_users.json    -m  "C:\Users\Narasimha\AppData\Roaming\npm\node_modules\json-server-auth"
+
+
+-----------------------------------------------------------------------------
+
+Use http client tools(eg: postman) or programs to communicate with json-server. 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Download postman:   https://www.postman.com/downloads/
+
+
+1. POST  request url	:	http://localhost:3000/users/register
+	
+	
+	Note: This is for register new user details
+	
+	request data:
+	
+				{
+						"email": "scott@gmail.com",
+						"password": "scott@123"
+				}
+	
+	
+	response:
+	{
+    "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im9saXZpZXJAbWFpbC5jb20iLCJpYXQiOjE2MzU4MzczNzQsImV4cCI6MTYzNTg0MDk3NCwic3ViIjoiMSJ9.9ue_8UsskIONwMtz0zpkxYLW_e9jR9jCH_9iLhvhZNM",
+    "user": {
+        "email": "scott@gmail.com",
+        "id": 1
+    }
+}
+
+
+------------------------------------------------------------------
+
+2.  Request for login and check the accessToken 
+
+
+	Request url :   http://localhost:3000/login
+	Request Method :   POST
+	Request Data:  
+				{
+						"email": "scott@gmail.com",
+						"password": "scott@123"
+				}
+				
+				
+				{
+					"email": "admin@gmail.com",
+					"password": "admin123"
+				}
+
+ 
+	Response contains token details.  					
+						
+				{
+    "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNjb3R0QGdtYWlsLmNvbSIsImlhdCI6MTY0MDY5NTY2MiwiZXhwIjoxNjQwNjk5MjYyLCJzdWIiOiIyIn0.CiIDIIok146z4fjKJQp8_0tWyeiTrI8mcAzyqEnUly8",
+    "user": {
+        "email": "scott@gmail.com",
+        "id": 2
+    }
+}		
+
+
+-----------------------------------------------------------------------------------------------------------------
+
+
+Token sharing from Login component to Http Interceptors
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+sessionStorage	/ localStorage
+
+	getItem(key)
+	setItem(key, value)
+	removeItem(key)
+	clear()
+	
+	
+
+
+Login Component
+			sessionStorage.setItem("AUTH_TOKEN",  resData.accessToken);
+			
+			
+HttpInterceptor Service 			
+		 
+	// const authToken = '1d38d128-0671-4121-8084-f6332a992a40';
+	let  authToken =  sessionStorage.getItem("AUTH_TOKEN");
+	
+	if(authToken == undefined)
+	{
+		return throwError( () => new Error("Token not exists. You need to login to access this resource") );		 
+	}
+	
+	
+	
+	Start the json-server-auth and json-server separately with different port numbers. 
+	
+			
+	for generate jwt authentication token
+	json-auth   	----  	3500	   ----	users.json	
+	
+	for access the students data
+	json-server 	----	3000		----   students.json
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+						
+			
+

@@ -1,0 +1,12 @@
+
+
+Create Angular Application to implement following requirement
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+1. Create  data service to perform CRUD
+2. Create emp-list component to  perform CRUD
+		emp object properties : 	empno, ename, job, sal, deptno
+		
+3.  Use JSON-Server to implement this.
+4.  Add Http Interceptors to inject token globally. 
+		

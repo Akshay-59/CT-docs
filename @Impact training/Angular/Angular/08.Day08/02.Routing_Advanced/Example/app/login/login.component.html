@@ -1,0 +1,17 @@
+
+<fieldset>
+  <legend>User Login</legend>
+
+  User Id  : <input type="text" [(ngModel)]="uid" />
+  <br/><br/>
+
+  Password  : <input type="password" [(ngModel)]="pwd" />
+  <br/><br/>
+
+
+  <button mat-raised-button color="primary">Primary</button>
+  <button mat-raised-button color="accent">Accent</button>
+<hr/>
+  <button mat-stroked-button color="warn" color="primary"  (click)="login_click()">Login</button>
+  <p> {{result}} </p>
+</fieldset>

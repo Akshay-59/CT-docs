@@ -1,0 +1,54 @@
+ Angular Component Life Cycle Hooks / Events
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-> A component in Angular Application has a life-cycle, it gone through different different phases from creation to destroy.
+
+-> We can also add some logic in these phases if required.   
+
+-> To do this we add some methods to our component class which get called during each of these life-cycle phases, we call those methods hooks.
+
+-> We can also refers these hooks as life cycle events.
+
+Life Cycle Events
+~~~~~~~~~~~~~~~~~	
+1. constructor	
+2. ngOnChanges()
+3. ngOnInit()
+4. ngDoCheck()
+5. ngAfterContentInit()
+6. ngAfterContentChecked()
+7. ngAfterViewInit()
+8. ngAfterViewChecked()
+9. ngOnDestroy()
+---------------------------------------------------------------
+
+1.  constructor()		---  inject services
+
+2.	  ngOnChanges	---	  trigger when we change input property values	
+
+3.   ngOnInit				---	  trigger after constructor
+											
+											eg:  reading route parameters, fetching data from db using services.
+											
+											this.empsArray =  response.data;
+											
+4.   ngDoCheck		---	  change detector --- data binding properties.  It will be invoked when the change detector of the given component is invoked.  
+
+
+5.   ngAfterContentInit 	
+		-- Invoked after Angular performs any content projection into the components view. 
+		
+6.   ngAfterContentChecked 
+		-> It will be invoked each time the content of the given component has been checked by the change detection mechanism of Angular.
+		
+7.   ngAfterViewInit 
+	-> It will be invoked when the component’s view has been fully initialized --- includes all children and grand children.
+
+8.   ngAfterViewChecked  
+	-> It will be invoked each time the view of the given component has been checked by the change detection mechanism of Angular.
+
+9.  ngDestroy 		-->  trigger when the component is unloading 	
+							--> This method will be invoked just before Angular destroys the component.
+
+
+
+ 

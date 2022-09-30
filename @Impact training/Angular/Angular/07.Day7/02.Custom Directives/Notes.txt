@@ -1,0 +1,169 @@
+Developing Custom Directives in Angular
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+--> The directives that we create for customized requirement those we called as "Custom Directives".
+
+--> Adding customized behavior using directives.
+
+	Eg:   Angular Material directives 
+
+		<button  mat-button>Login</button>
+
+
+--> Show/Hide the content based on the specific conditions. 
+
+	Eg:  Display the content based on the user type.
+
+
+
+
+How to create attribute custom Directives (attribute directives)?
+	
+Stpes:
+
+a. add custom directive using angular CLI
+			ng  g  d  highLighter
+			
+			>	high-lighter.directive.ts
+			>	high-lighter.directive.spec.ts
+			
+			
+b.  Inject ElementRef in directive class constructor
+
+	--->   In this context "ElementRef" refers the DOM element (reference of the tag) on which we apply the custom directive.
+ 			
+	constructor(private element:ElementRef) {
+		 
+	  }
+
+c. Perform the operation using elementRef.
+			this.element.navtiveElement.style.backgroundColor = "Yellow" ;
+	
+	  
+--------------------------------------------------------------------------------------
+
+import { Directive } from '@angular/core';
+
+@Directive({
+  selector: '[appHighLighter]'
+})
+export class HighLighterDirective {
+
+  constructor() { }
+
+}
+
+
+
+Usage:
+
+	<p appHighLighter> ...</p>
+	
+	
+Note: If you want to allow the user to pass the value to your directive, add input property into directive.
+
+			  @Input()
+			  appHighLighter:string  = "";
+			  
+			  
+			  
+			<p [appHighLighter]=" 'Aqua' "> ...</p>
+			<p [appHighLighter]=" 'Lime' "> ...</p>
+
+---------------------------------------------------------------------------------------------------------
+
+
+
+
+
+How to create structural custom Directives?
+	
+
+--> Structural custom directives are prefix with * 
+--> Angular uses the following classes that we need to inject in directive constructor.
+
+			a. TemplateRef
+			b. ViewContainerRef
+
+
+		constructor(private viewContainer: ViewContainerRef,
+            private templateRef: TemplateRef<any>) 
+		{
+				
+		}
+
+
+
+TemplateRef
+~~~~~~~~~~~
+	-->  Access a TemplateRef instance by placing a directive prefixed with *. 
+	--> It refers the current tag on which we apply custom directive.
+	--> The TemplateRef is injected into the constructor of the custom directive class.
+	
+	constructor(private templateRef: TemplateRef<any>) 
+	{
+		
+    }
+	
+	
+ViewContainerRef
+~~~~~~~~~~~~~~~
+--> It represents a container where one or more views can be attached.
+--> It can contain embedded views (created by instantiating a TemplateRef).
+-->  We can organize the TemplateRef with the createEmbeddedView() method.
+--> It also need inject in constructor.
+
+		constructor(private viewContainer: ViewContainerRef,
+            private templateRef: TemplateRef<any>) 
+		{
+			
+		}
+	
+
+Methods:	
+	1.  createEmbeddedView() :   Instantiates an embedded view and inserts it into this container.	
+	
+		Usage: 
+				   viewContainer.createEmbeddedView(this.templateRef);
+				   
+				   
+				   
+	2.  clear():   
+			
+		Usage:		viewContainer.clear();
+
+
+		
+	
+	
+Task
+~~~~~
+
+1.  Create attribute custom directive to apply shadow for the given element. 
+
+	<p    appMyShadow> Text </p>	
+	<p    [appMyShadow]=" 'Blue' "> Text </p>
+	<p    [appMyShadow]=" 'Green' "> Text </p>
+	
+	
+
+2.  Create structural directive that allow only admin users.  
+Show if the given user name is in admins list. Otherwise hide the content. 
+
+	Allowed Admin users:   Scott, Smith, Robert, Mark		(Array of Strings)
+
+		<div   *adminPanel=" 'Scott' ">
+		...
+		</div>
+		
+		<div   *adminPanel=" 'Smith' ">
+		...
+		</div>
+		
+		<div   *adminPanel=" 'Sam' ">
+		...
+		</div>
+		
+		Hint: For "Sam" user we need to hide. 
+	
+	

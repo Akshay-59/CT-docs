@@ -1,0 +1,111 @@
+Custom Pipes in Angular
+~~~~~~~~~~~~~~~~~~~~~
+
+1. Add new pipe using angular cli
+		Syntax:   ng  g  p  pipename
+		Eg:		   > ng  g  p  gender
+		
+2. Define custom pipe class		
+		->	 @Pipe()  decorator
+		->	 Implement  PipeTransform  interface
+					-  transform() method
+					
+		Note: 
+		a.  you need to add required logic in transform() method.			
+		b . If requied, change the name of the pipe in @Pipe() decorator		
+		
+		@Pipe({    name: 'gender'  })				// default
+		@Pipe({    name: 'genderpipe'  })			//  updated
+		
+
+3. Register pipe in app module
+	- app.module.ts
+		- declarations :  [ AppComponent, .... , GenderPipe ]
+		
+4. Use custom pipe in template
+		{{ variable |  pipename}}
+		
+----------------------------------------------------------------------------------------------------------------
+
+Creating custom pipe:
+
+	input type			---			string
+	output type		---			string
+	
+		
+								input					----			output
+								------------------------------------------
+
+lowercase 				String								String
+date 							date									String
+......
+slice 						Array								Array
+
+
+gender						String								String
+
+								M 									Male
+								F										Female
+
+------------------------------------------------------------------------------------------------------
+
+
+filter.pipe.ts
+~~~~~~~~~
+export class FilterPipe implements PipeTransform {
+  transform(inputData:any[], key:string, value:string): any[]     {
+		..... 
+  }
+}
+	 
+	 	 
+emp-list.component.html
+~~~~~~~~~~~~~~~~~~~		 
+<tr *ngFor="let item of empData | filterpipe: key : value">
+.......
+</tr>
+
+
+ 	
+-----------------------------------------------------------------------------------------------------
+
+What is Chaining Pipe?
+
+Applying Multiple pipes on single input	-----	Chaining Pipe
+
+
+	{{  obj1.gender | genderpipe | uppercase }}
+-------------------------------------------------------------------------------
+
+
+
+
+What is pure pipe and impure pipe?
+
+
+--> When pipe is pure, transform() method is invoked only when its input arguments change. Pipes are pure by default.
+
+--> If you set pure to false,  the pipe is invoked on each change detection cycle, even if the arguments have not changed.
+
+
+Pure Pipe:
+		By default, pipes are defined as pure so that Angular executes the pipe logic only when it recognize/detect the changes on the input value. 
+		
+Usage:	
+			@Pipe({
+				name :  "gender",
+				pure :  true	
+			})
+
+Impure:   	--> To execute the custom pipe after a change within a composite object (eg :  item inside the array, prop in a object)),  you need to define our pipe as impure.
+
+
+			@Pipe({
+				name :  "gender",
+				pure :  false	
+			})
+
+----------------------------------------------------------------------------------------------
+
+
+					

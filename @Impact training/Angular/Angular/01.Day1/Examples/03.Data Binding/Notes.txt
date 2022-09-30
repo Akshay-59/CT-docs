@@ -1,0 +1,88 @@
+Data Binding in Angular
+~~~~~~~~~~~~~~~~~~~~~
+
+--> Binding data that we declared in code with Template elements
+--> If you change the values in data, that reflects automatically in template. 
+
+
+1.		{{ 	}}		---     Interpolation 
+
+
+		Component 	---->			Template (View)
+
+		*.ts									*.html		
+		uname			-------			<span> {{uname}} </span>
+		obj.deptno	-------		   <span> {{obj.deptno}} </span>
+
+
+2.	  () 	-		Event Binding 		
+
+	Component 	<----			Template (View)
+	
+	--> Implement the event handling in angular
+	
+	
+	Eg:			<input  type="button" (click)="getData_click()" value="Get Data"  />
+					<button (click)="getData_click()">Get Data</button>
+	
+3.   [ ]   ---  property binding
+
+	--> Binding data with DOM properties of HTML elements.
+	
+	   <button  [disabled]="x">Get Data</button>
+	   
+	   obj.disabled = true;   // JavaScript	   
+
+	Component 	---->			Template (View)	
+		
+	
+4.  [(  )]	 --   Two-way data binding ---  [(ngModel)]
+
+		Component 	<--------->			Template (View)	
+		
+		--> Applicable to  input,  textarea, select
+		--> Reading data from user
+		--> Usage:		
+				<input  type="text"  [(ngModel)]="uname"  />
+				
+		Note: You should import FormsModule in app.module  in order to use ngModel directive. 
+		
+
+		app.module.ts
+		
+		
+				import {FormsModule}  from '@angular/forms';
+		
+				1. declarations :  [ AppCompoent, LoginComponent, ...... ]
+				2. imports  :   [ BrowserModule, FormsModule ]
+		
+			
+		
+
+
+
+
+
+
+Task
+~~~~~
+
+1.  Display Total Amount based on the given price and Quantity
+
+
+
+ 2.  Display Collection of Product details in table format. 	
+		--- pid, pname, price, category, qty
+		
+  -->   Prepare required no. of textbox to read data from user. 
+  
+  -->  Add the above values to Products Array when you click "Add Product" button.
+  
+
+  
+
+
+			
+	
+	
+	

@@ -1,0 +1,104 @@
+Angular Services and Dependency Injection
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+--> A Service  is  a class that contains re-usable logic across the application.
+--> A component can delegate certain tasks to services, such as fetching data from the server, validating user inputs, logging messages on the console. 
+
+
+Dependency Injection
+~~~~~~~~~~~~~~~~~~
+--> Dependency Injection is a popular design pattern. 
+--> DI is design pattern in which a class requests the dependencies from external sources rather than creating them itself. 
+--> Angular DI framework provides dependencies to a class upon instantiation.
+	Use DI to increase flexibility and modularity  in your application. 
+	
+	
+	
+Steps
+~~~~~
+1. Create a service using angular CLI.
+2. Provide  required logic in service class
+3. Inject the service object in component
+4. Access the members of services to perform operation.
+
+
+
+
+How to create a services?
+
+>		ng 	generate 	service  product
+>		ng 	g 	s  product
+>		ng 	g 	s  data
+>		ng 	g 	s  db
+
+
+
+
+@Injectable()
+export class DbService
+{
+	// logic
+	
+}
+
+
+How to inject the services in Angular Components?
+
+
+...
+export class EmpDetailsComponent   {	
+	
+	constructor( private  serviceObj:DbService ){
+		
+	} 
+}	
+
+
+
+Note:
+
+--> When Angular discovers that a component depends on a service, it first checks if the injector has any existing instances of that service. 
+
+--> If the requested service instance doesn't yet exist, the injector makes one , and adds it to the injector before returning the service to Angular.
+
+-->When all requested services have been resolved and returned, Angular can call the component's constructor with those services as arguments.
+
+
+
+Providing Service
+~~~~~~~~~~~~~~~
+
+1. Root Level
+
+	a.  AppModule 	---		@NgModule( {    providers:  [DbService]  } )
+	
+	(OR)
+	
+	b.   @Injectable({  providedIn: 'root' })
+	
+	Note:  providedIn  option avavilable from Angular9 version
+
+
+2. Feature Module Level
+
+	@Injectable({  providedIn: 'AdminModule' })
+
+
+3. Component Level
+		
+		@Component({
+		  .....
+		  providers: [DbService]
+		})
+		
+--------------------------------------------------------------------------------		
+
+
+Task
+~~~~~
+
+1.  Add the following methods in the data services:
+			
+			a.   AddEmp(empObj:any)
+			b.   RemoveEmp(eno:number)
+
+2.  Invoke the above method in component  to add and remove operations. 

@@ -1,0 +1,17 @@
+mat-grid-tile{
+    background-color: lightblue;
+}
+
+
+.example-card {
+    max-width: 350px;
+    margin: 30px;
+    margin-left:30px;
+    /* margin-right:auto;   */
+    margin-top: 10px;
+}
+
+/* mat-icon{
+    background-color: aqua;
+} */
+

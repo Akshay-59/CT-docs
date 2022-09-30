@@ -1,0 +1,137 @@
+
+<!-- <mat-toolbar color="primary">
+    <mat-toolbar-row>
+      <button mat-icon-button>
+        <mat-icon (click)="sidenav.toggle();">menu</mat-icon>
+      </button>
+      <h1>CT General Hospital</h1>
+    </mat-toolbar-row>
+  </mat-toolbar> -->
+
+  <!-- <mat-icon (click)="sidenav.toggle();">menu</mat-icon> -->
+  
+  <mat-sidenav-container>
+    <mat-sidenav #sidenav opened="true" mode="side">
+      <mat-nav-list>
+        
+        <a mat-list-item routerLink="/inbox/dashboard" routerLinkActive="list-item-active">
+          <!-- <mat-icon>Inbox </mat-icon> Inbox -->
+        Go back to Inbox
+        </a>
+        <a mat-list-item routerLink="../homepage" routerLinkActive="list-item-active">Go to Homepage</a>
+        
+ <!-- <div class="center">
+   <a routerLink="/patient"><button type="button" class="button">Patient</button></a>
+</div> --> 
+        
+      </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+
+
+      <!-- <mat-grid-list cols="2" rowHeight="fit"  style="height: 200px" gutterSize="20px">
+        <mat-grid-tile>title1</mat-grid-tile>
+        <mat-grid-tile input type="button" routerLink="/homepage" routerLinkActive="list-item-active">title2</mat-grid-tile>
+        
+      </mat-grid-list>
+      -->
+      <mat-sidenav-content>
+        <div class="card-wrapper">
+  
+          <mat-card class="example-card">
+            <mat-card-header>
+              <!-- <img
+                src="https://www.freakyjolly.com/wp-content/uploads/2021/07/cropped-cropped-fj-logo-192-removebg-preview-e1625997712615-1.png"
+                mat-card-avatar /> -->
+              <mat-card-title>Upcoming Appointments</mat-card-title>
+              <!-- <mat-card-subtitle>
+                Learn Web Development with Easy Tutorials
+              </mat-card-subtitle> -->
+            </mat-card-header>
+            <!-- <img mat-card-image style="width: 150px;" src="https://angular.io/assets/images/logos/angularjs/AngularJS-Shield.svg" alt="Angular Logo"> -->
+            <mat-card-content>
+              <p> Go to patient's Upcoming Appointments </p>
+            </mat-card-content>
+        
+            <mat-card-actions>
+              <button mat-raised-button color="primary" routerLink="../patient-visit-history" routerLinkActive="list-item-active">OPEN</button>
+  
+            </mat-card-actions>
+          </mat-card>
+        
+        </div>
+      </mat-sidenav-content>
+
+
+
+      <mat-sidenav-content>
+        <div class="card-wrapper">
+  
+          <mat-card class="example-card">
+            <mat-card-header>
+              <!-- <img
+                src="https://www.freakyjolly.com/wp-content/uploads/2021/07/cropped-cropped-fj-logo-192-removebg-preview-e1625997712615-1.png"
+                mat-card-avatar /> -->
+              <mat-card-title>Appointments declined</mat-card-title>
+              <!-- <mat-card-subtitle>
+                Learn Web Development with Easy Tutorials
+              </mat-card-subtitle> -->
+            </mat-card-header>
+            <!-- <img mat-card-image style="width: 150px;" src="https://angular.io/assets/images/logos/angularjs/AngularJS-Shield.svg" alt="Angular Logo"> -->
+            <mat-card-content>
+              <p> Go to see if any appointments declined</p>
+            </mat-card-content>
+        
+            <mat-card-actions>
+              <button mat-raised-button color="primary" routerLink="../patient-visit-history" routerLinkActive="list-item-active">OPEN</button>
+  
+            </mat-card-actions>
+          </mat-card>
+        
+        </div>
+      </mat-sidenav-content>
+  
+
+
+
+
+      <mat-sidenav-content>
+        <div class="card-wrapper">
+  
+          <mat-card class="example-card">
+            <mat-card-header>
+              <!-- <img
+                src="https://www.freakyjolly.com/wp-content/uploads/2021/07/cropped-cropped-fj-logo-192-removebg-preview-e1625997712615-1.png"
+                mat-card-avatar /> -->
+              <mat-card-title>Patient visit history</mat-card-title>
+              <!-- <mat-card-subtitle>
+                Learn Web Development with Easy Tutorials
+              </mat-card-subtitle> -->
+            </mat-card-header>
+            <!-- <img mat-card-image style="width: 150px;" src="https://angular.io/assets/images/logos/angularjs/AngularJS-Shield.svg" alt="Angular Logo"> -->
+            <mat-card-content>
+              <p> Go to patient's visit history </p>
+            </mat-card-content>
+        
+            <mat-card-actions>
+              <button mat-raised-button color="primary" routerLink="../patient-visit-history" routerLinkActive="list-item-active">OPEN</button>
+  
+            </mat-card-actions>
+          </mat-card>
+        
+        </div>
+      </mat-sidenav-content>
+  
+
+
+
+
+      <div style="height:88vh">
+        <!-- <router-outlet>
+  
+        </router-outlet> -->
+      </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+
+ 

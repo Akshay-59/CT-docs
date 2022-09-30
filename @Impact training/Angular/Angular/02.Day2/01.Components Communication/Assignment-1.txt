@@ -1,0 +1,13 @@
+	
+1. Create Product List component that accepts category as input parameter. Display the list of products belongs to the given category.
+
+<product-list   category="Mobiles"></product-list>	
+<product-list   [category]="str"></product-list>	
+	
+	
+	pid, pname, price, category
+	
+		
+	parent :   app component
+	child :   product-list
+	

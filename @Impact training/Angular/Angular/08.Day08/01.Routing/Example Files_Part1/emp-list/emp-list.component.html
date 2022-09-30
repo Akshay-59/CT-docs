@@ -1,0 +1,27 @@
+
+ <table width="500"  cellspacing="0"  cellpadding="3"  border="2">
+  <tr>
+    <th>Emp Number</th>
+    <th>Emp Name</th>
+    <th>Emp Job</th>
+    <th>Emp Salary</th>
+    <th></th>
+  </tr>
+
+  <tr *ngFor="let item of empsArray">
+      <td>{{item.empno}}</td>
+      <td>{{item.ename | titlecase}}</td>
+      <td>{{item.job | uppercase}}</td>
+      <td>{{item.sal | currency}}</td>
+      <td>
+        <a [routerLink]=" ['/Details', item.empno] ">Details</a>
+      </td>
+  </tr>
+</table>
+
+<hr/>
+
+<!--
+<p> {{empsArray[0] | json }} </p>
+-->
+

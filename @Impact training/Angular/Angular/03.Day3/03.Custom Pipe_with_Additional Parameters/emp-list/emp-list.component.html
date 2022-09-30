@@ -1,0 +1,37 @@
+<h3>Working with slice pipe in Angular</h3>
+<hr/>
+
+Filter Property  :
+  <select [(ngModel)]="filterKey">
+     <option>job</option>
+     <option>deptno</option>
+</select>
+
+Filter Value  :  <input [(ngModel)]="filterValue"  />
+
+<button (click)="filterData_click()">Filter Data</button>
+ <br/><br/>
+ <table width="500"  cellspacing="0"  cellpadding="3"  border="2">
+  <tr>
+    <th>Emp Number</th>
+    <th>Emp Name</th>
+    <th>Emp Job</th>
+    <th>Emp Salary</th>
+    <th>Emp Deptno</th>
+  </tr>
+
+  <tr *ngFor="let item of empsArray | filterpipe: key : value ">
+      <td>{{item.empno}}</td>
+      <td>{{item.ename | titlecase}}</td>
+      <td>{{item.job | uppercase}}</td>
+      <td>{{item.sal | currency}}</td>
+      <td>{{item.deptno}}</td>
+  </tr>
+</table>
+
+<hr/>
+
+<!--
+<p> {{empsArray[0] | json }} </p>
+-->
+

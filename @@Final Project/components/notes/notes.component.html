@@ -1,0 +1,101 @@
+<!-- <mat-toolbar color="primary">
+    <mat-toolbar-row>
+      <button mat-icon-button>
+        <mat-icon (click)="sidenav.toggle();">menu</mat-icon>
+      </button>
+      <h1>CT General Hospital</h1>
+    </mat-toolbar-row>
+  </mat-toolbar> -->
+
+  <mat-icon (click)="sidenav.toggle(); ">menu</mat-icon>
+  
+  
+  <mat-sidenav-container>
+    <mat-sidenav #sidenav opened="true" mode="side">
+      <mat-nav-list>
+        
+        <mat-nav-list>
+            <a mat-list-item routerLink="/inbox/dashboard" routerLinkActive="list-item-active">Go back to Inbox </a>
+           
+            <a mat-list-item routerLink="../patient-details" routerLinkActive="list-item-active">Go to Patient Details Screen</a> 
+            
+       
+      
+            <a mat-list-item routerLink="../employee-details" routerLinkActive="list-item-active">Go to Employee Details </a>
+           
+            <a mat-list-item routerLink="../patient-registration" routerLinkActive="list-item-active">Go to Patient Registration</a>
+            <a mat-list-item routerLink="../user-management" routerLinkActive="list-item-active">Go to User Management </a>
+            <a mat-list-item routerLink="../patient-history" routerLinkActive="list-item-active">Visit Patient History </a>
+            <a mat-list-item routerLink="../scheduling" routerLinkActive="list-item-active">Scheduling </a>
+            <a mat-list-item routerLink="../homepage" routerLinkActive="list-item-active">Go to Homepage</a>
+          </mat-nav-list>
+        
+      </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+
+
+        <mat-sidenav-content>
+            <div class="card-wrapper">
+        
+              <mat-card class="example-card">
+                <mat-card-header>
+                  
+                  <mat-card-title>Send a note</mat-card-title>
+                 
+                </mat-card-header>
+                
+                <mat-card-content>
+                  <p>Click here to send a note </p>
+                </mat-card-content>
+                <mat-card-actions>
+                  <button mat-raised-button color="primary" routerLink="../send-note" routerLinkActive="list-item-active">OPEN</button>
+                </mat-card-actions>
+              </mat-card>
+            </div>
+          </mat-sidenav-content>
+        
+        
+        
+        
+          <mat-sidenav-content>
+            <div class="card-wrapper">
+        
+              <mat-card class="example-card">
+                <mat-card-header>
+                  
+                  <mat-card-title>Received Notes</mat-card-title>
+                  
+                </mat-card-header>
+               
+                <mat-card-content>
+                  <p>Click here to see received notes</p>
+                </mat-card-content>
+                <mat-card-actions>
+                  <button mat-raised-button color="primary" routerLink="../received-note" routerLinkActive="list-item-active">OPEN</button>
+                </mat-card-actions>
+              </mat-card>
+            </div>
+          </mat-sidenav-content>
+        
+        
+          <mat-sidenav-content>
+            <div class="card-wrapper">
+        
+              <mat-card class="example-card">
+                <mat-card-header>
+                  <mat-card-title>View Sent Notes</mat-card-title>
+               
+                </mat-card-header>
+               
+                <mat-card-content>
+                  <p>Click here to view sent notes</p>
+                </mat-card-content>
+                <mat-card-actions>
+                  <button mat-raised-button color="primary" routerLink="../sent-note" routerLinkActive="list-item-active">OPEN</button>
+                </mat-card-actions>
+              </mat-card>
+            </div>
+          </mat-sidenav-content>
+
+

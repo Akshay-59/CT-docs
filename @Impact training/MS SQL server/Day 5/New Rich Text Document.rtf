@@ -1,0 +1,37 @@
+1) Create a view based to show all the orders made in year 2011. The view must display order details and the productnames involved in that order
+
+2) Create a anonymous block to get the age of any one employee and print his name #age number of times
+
+-------------PROCEDURES--------------
+
+--variable
+DECLARE
+@PName VARCHAR(50);
+SET @PName = 'TEST PRODUCT'
+SELECT @PName
+SELECT @PName = Name FROM Production.Product WHERE ProductID = 317
+PRINT @PName
+
+--if--else
+DECLARE @i INT
+SET @i=10
+if (@i % 2)=0
+BEGIN
+Print 'Even Number'
+Print '------------'
+END
+else
+BEGIN
+Print 'Odd Number'
+Print '*************'
+END
+
+---LOOPS
+--while
+DECLARE @i INT
+SET @i=1
+WHILE (@i<=10)
+BEGIN
+PRINT @i
+SET @i = @i+1
+END

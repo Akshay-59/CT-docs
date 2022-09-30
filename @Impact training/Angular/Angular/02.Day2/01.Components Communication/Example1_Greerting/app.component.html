@@ -1,0 +1,15 @@
+<h3 align="center">Application Development using Angular </h3>
+<hr/>
+
+
+<app-greeting  uname="Narasimha"></app-greeting>
+<app-greeting  uname="Smith"></app-greeting>
+<app-greeting  uname="Sandy"></app-greeting>
+<hr/>
+<app-greeting  [uname]="user1"></app-greeting>
+<app-greeting  [uname]="user2"></app-greeting>
+<hr/>
+
+<app-greeting *ngFor="let item of unamesArray"
+              [uname]="item">
+</app-greeting>

@@ -1,0 +1,91 @@
+Working with Modules in Angular
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+@NgModule()		---   decorator applicable to modules in Angular
+
+		a. declarations	 : [  AppComponent, LoginComponent,.....  ]
+		b. imports		:		[  BrowserModule, FormsModule ]
+		c.  providers   :   [ ]
+		d.  bootstrap :    [AppComponent]
+		e.  exports
+		
+
+@Component()	---   decorator applicable to components in Angular
+	a. selector
+	b. templateUrl
+	c. styleUrls
+
+
+
+
+
+Types of Modules
+~~~~~~~~~~~~~~
+1.   Root Module
+
+		-->  App Module
+					--- Startup component					
+		-->  Startup Module
+		-->  Only one root modules
+		
+2.		Feature Modules
+
+		-->  also called as domain module
+		--> as per the project business domain, we can divide the application into multiple modules:
+				---  customer module
+				---  product module
+				---  dispatching module
+				.....
+		-->  Any number of features modules
+		-->  We need refer from AppModule, add in imports section
+				
+		
+3.     Shared Modules		
+
+		--> it is also like a feature module
+		--> it contains common services, components that can used across all the modules in the project.
+		-->  Any number of shared modules
+		-->  We need refer from AppModule, add in imports section
+		
+
+
+Add new module:
+
+		ng  g   m   admin
+		ng  g   m   user
+		ng  g   m   customer
+		...
+		
+		
+Add components to specific feature module:
+			
+		>	ng  g  c register   --module admin
+		>	ng  g  p grade   --module admin
+		>	ng  g  s dataservice   --module admin
+		
+
+
+
+
+
+
+
+
+		AppModule 		--- 			Root  Module		
+		AppRouting 	---				Routing Module
+		
+
+
+
+
+
+
+
+
+
+	
+		
+		
+		
+			
+

@@ -1,0 +1,8 @@
+<h3>Departments List</h3>
+
+<div>
+		<app-dept-details  *ngFor="let item of depts"
+								[deptObj]="item"
+								(onDeptRemoved)="removeDept($event)">
+		</app-dept-details>
+</div>

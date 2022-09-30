@@ -1,0 +1,31 @@
+<style>
+  .c1
+  {
+      border: 1px solid gray;
+      border-radius : 10px;
+      width : 150px;
+      padding : 5px;
+      text-align: center;
+      margin: 5px;
+      float:left;
+      box-shadow: 5px 5px 2px black;
+  }
+</style>
+
+<div style="text-align:center;border: 1px solid black; background-color:lightblue;">
+    <ng-content></ng-content>
+</div>
+
+<div  *ngFor="let deptObj of filteredArray" class="c1">
+  <h3 style="margin: 2px;color:Red;"> {{deptObj.dname}} </h3>
+  <u> Deptno :   {{deptObj.deptno}} </u>  <br/>
+  Location : <span style="color:Green;"> {{deptObj.loc}} </span>   <br/>
+</div>
+
+<br/>
+<div style="clear:left;"></div>
+<hr/>
+
+<div style="text-align:center;border: 1px solid black; background-color:lightpink;">
+  <ng-content select="[footer]"></ng-content>
+</div>

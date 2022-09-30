@@ -1,0 +1,8 @@
+----- Angular project 
+
+> md angularApp
+> cd angularApp
+> ng new my-project
+> cd my-project
+
+

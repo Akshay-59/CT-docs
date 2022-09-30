@@ -1,0 +1,119 @@
+Template Variables in Angular
+~~~~~~~~~~~~~~~~~~~~~~~~~
+--> Template variables that we create in angular component template
+--> Template variables refers the DOM objects
+--> It is angular technique to refer DOM objects using template variables.
+--> Template variables  are prefix with "#"
+
+
+*.component.html
+~~~~~~~~~~~~~~~
+<p  #obj1> ..... </p>
+
+<span  #sp1>
+
+
+
+Regular JavaScript
+~~~~~~~~~~~~~~~~~
+	<p id="p1"></p>
+	<h3  id="heading1">Content Project in Angular</h3>
+
+	JS code:
+			var  obj1=  document.getElementById("heading11");
+			alert(obj1);
+			
+			var  obj1=  document.getElementById("p1");
+
+
+
+
+*.component.html
+~~~~~~~~~~~~~~~
+
+<h3  #heading1>Content Projection in Angular</h3>
+<hr/>
+
+ {{heading1.innerText}}
+
+
+			
+-------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+DOM Operations using ViewChild & ViewChildren 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+@ViewChild() 		---			Single
+@ViewChildren()	---			Multiple
+
+
+
+--> ViewChild refers first occurrence of the specified element.
+--> We can perform get/set operations on all the properties of ViewChild/ViewChildren properties.
+--> Property decorator (@ViewChild())  that configures a view(template/UI) query. 
+--> The change detector looks for the first element or the directive matching the selector in the view DOM.
+ 
+
+--> Used to access the child tags (DOM Element). 
+		--> access child tag members :  props and methods
+		--> applicable to html tag or other component
+		->  ElementRef / DemoComponent
+		
+
+Usage:		
+
+	Library Classes:			ViewChild, ViewChildren, QueryList
+		
+	import { ViewChild, ViewChildren, QueryList } from '@angular/core';	
+	
+	
+		 	
+		 @ViewChild(DeptDetailsComponent)   deptChild!: DeptDetailsComponent;		 
+		 @ViewChildren(DeptDetailsComponent) deptChildren!: QueryList<DeptDetailsComponent>;
+		  
+		  
+		 @ViewChild('p1') paraRef!: ElementRef;
+
+			--- p1 is a template variable.			
+						<p   #p1>Hello World</p>
+			
+			--- all html tags are referred with ElementRef class.
+			
+ 
+
+*.component.ts		---		application logic
+*.component.html	---		ui logic
+		----> child tags
+				1--- html tags
+				2--- other components
+
+
+
+app.component.html
+	
+		<app-demo>		----	 child for app components
+		<p>		----	 child for app components
+		<h1>		----	 child for app components
+
+
+ ngAfterViewInit(){
+    console.log(this.deptChild);
+    console.log(this.deptChild.deptObj);
+
+    console.log(this.deptChildren);
+    console.log(this.deptChildren.toArray());
+
+    console.log(this.paraRef.nativeElement);
+    console.log(this.paraRef.nativeElement.innerHTML);
+ }
+
+---------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+

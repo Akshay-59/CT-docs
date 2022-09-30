@@ -1,0 +1,46 @@
+https://github.com/Akshay-59/AngularFS_Training_Assignments.git
+
+
+[5:50 PM] Narasimha (Guest)
+    
+Steps to Raise the pull request
+
+ ~~~~~~~~~~~~~~~~~~~
+
+                        -->  Go to "Pull requests"  section
+                        -->  Click "New Pull Request" button
+                        -->  Set the comparing brances:                        
+                                        Eg:            master  <---   dev
+                        -->      Click "Create pull request" button
+                        -->    Provide any description if required and click "Create pull request" button
+                
+                    Note :  The above steps will raise the pull request and waiting for "Review".  
+                                        Show the following Options
+                                                a.  Reqview Required
+                                                b. Merging is blocked 
+
+
+
+​[5:50 PM] Narasimha (Guest)
+    
+Steps to Approve the pull request
+
+ ~~~~~~~~~~~~~~~~~~~~~~
+
+                         -->  Go to "Pull requests"  section
+                        -->   Select the "Pull request" that is required approve
+                        -->   Go to "Files Changed" section
+                        -->   Click on "Review changes" button.  It will open down-down with review options
+                                    
+                                    a. Comment
+                                    b. Approve
+                                    c.  Request Changes
+
+
+                        --> Select "Approve"  button  and Click "Submit Review" button.
+                        --> The pull request will ready to merge
+                        -->  Owner can do merge  by click "Merge"  button. 
+
+
+
+

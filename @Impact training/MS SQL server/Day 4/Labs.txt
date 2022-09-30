@@ -1,0 +1,4 @@
+/*
+Create a seq and insert data into multiple tables from the seq.
+**Start with 5 maxvalue 10 minvalue 1 cycle
+*/

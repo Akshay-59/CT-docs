@@ -1,0 +1,8 @@
+<h3 align="center">Component Communication in Angular</h3>
+<hr/>
+
+<app-filter-options  (onLocationChanged)="updateLocation($event)">
+</app-filter-options>
+<hr/>
+<app-dept-list  [location]="selectedLoc"></app-dept-list>
+

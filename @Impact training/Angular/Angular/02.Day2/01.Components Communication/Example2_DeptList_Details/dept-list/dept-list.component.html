@@ -1,0 +1,7 @@
+<h3>Component Communication in Angular</h3>
+<hr/>
+
+<app-dept-details *ngFor="let item of deptsArray"
+                  (onDeptRemove)="deptRemove_click_parent($event)"
+                  [deptObj]="item">
+</app-dept-details>

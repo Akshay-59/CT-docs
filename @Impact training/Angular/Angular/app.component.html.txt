@@ -1,0 +1,63 @@
+<!-- <app-demo1></app-demo1> -->
+
+<h3 align="center">Application Development using Angular </h3>
+<hr/>
+  
+
+
+<!-- <app-vehicle-registration-form></app-vehicle-registration-form> -->
+
+<!-- todo-list -->
+<!-- Latest compiled and minified CSS -->
+<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"> -->
+
+<!-- jQuery library -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script> -->
+
+<!-- Popper JS -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script> -->
+
+<!-- Latest compiled JavaScript -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+
+<h4 style="text-align: center; margin-top: 20px;">Todo Input</h4>
+
+<div class="row" style="border: 1px solid lightgray; width: 800px; margin: auto;">
+    <div class="col-sm-12 mt-3 ml-1 mb-3">
+      <input type="text" style="width: 100%;" id="todoinput" placeholder="New Todo" name="todoinput" [(ngModel)]="todoinput">
+    </div>
+    <div class="col-sm-12 mt-3 ml-2 mr-2 mb-3">
+        <button class="button" (click)="addNewTodo()" style="background-color: cyan; text-align: center; width: 100%;">Add new Task</button>
+      </div>
+  </div>
+
+<app-todo-list [newtodo]="todovalue"></app-todo-list> -->
+<!--todo-list -->
+
+
+<!-- <app-fancy-card>
+    <h1 top>This is the header from the parent component</h1>
+    
+    <app-prod-details>
+        <span>This is the data from product-list component</span>
+    </app-prod-details>
+
+    <p>This is the default ng-content data from parent component to fancy-card</p>
+
+    <h4 bottom>This is the footer from the parent Component</h4>
+</app-fancy-card> -->
+<!-- <app-fancy-card>
+    <h1  heading>User Details</h1>    
+    <app-dept-list></app-dept-list>
+</app-fancy-card>
+ 
+
+<app-fancy-card>
+    <h1  heading>User Login</h1>    
+    <app-login></app-login>
+</app-fancy-card>
+
+<app-fancy-card>
+    <h1  heading>Employee Details</h1>    
+    <app-emp></app-emp>
+</app-fancy-card> -->

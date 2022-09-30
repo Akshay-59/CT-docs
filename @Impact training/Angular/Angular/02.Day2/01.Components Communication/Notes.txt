@@ -1,0 +1,174 @@
+Component communication in Angular
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+How to passing  data to component?
+How parent and child components will communicate in Angular?
+How to add attributes to component tags?
+		<greeting  uname="Scott"></greeting>
+
+
+@Input()		----			Parent -->   Child
+@Output()	----			Child  --->    Parent
+
+
+
+
+<div>
+	<p></p>
+</div>
+
+
+div --- parent
+p  ---  child
+
+
+
+app.component.html
+
+	<app-depts></app-depts>
+	<app-login></app-login>
+	
+	
+	
+app 					----	parent
+detps, login 	----  child	
+
+
+
+<img   src="" />
+
+
+
+<app-details  ></app-details>
+<app-details  [productId]="213215"></app-details>
+
+
+<app-greeting  [uname]=" 'scott' " ></app-greeting>
+
+
+
+Greeting component
+	@Input()	
+	uname:string  = "";
+	
+	
+	
+	
+	
+Parent -------->   Child
+~~~~~~~~~~~~~~~~~~~
+	
+	app.component	
+		------>  <app-dept-list></app-dept-list>			
+						------------>    <app-dept-details></app-dept-details>
+	
+	
+	
+	
+	Parent:	
+			<app-dept-details *ngFor="let item of deptsArray"
+										[deptObj]="item">
+			</app-dept-details>
+			
+			
+	Child:
+			<div class="c1">
+					  <h3 style="margin: 2px;color:Red;"> {{deptObj.dname}} </h3>
+					  <u> Deptno :   {{deptObj.deptno}} </u>  <br/>
+					  Location : <span style="color:Green;"> {{deptObj.loc}} </span>   <br/>
+		</div>
+-----------------------------------------------------------------------------------------------------------	
+	
+	
+	
+Child ---> Parent
+~~~~~~~~~~~~~~
+
+
+
+import {  EventEmitter, Input, Output } from '@angular/core';
+
+
+	@Output()	decorator
+	
+
+<app-dept-details  [deptObj]="obj"></app-dept-details>
+
+<app-dept-details  
+			*ngFor="let item of deptsArray"
+			[deptObj]="item"></app-dept-details>
+
+
+import {  EventEmitter, Input, Output } from '@angular/core';
+
+
+	@Input()
+	deptObj:any  = {};
+	
+	
+	@Output()
+	onDeptRemove:EventEmitter<number>  = new EventEmitter();
+	
+	
+	this.onDeptRemove.emit( dno );
+	
+	
+	
+	
+	<button>Get Data</button>
+	
+	
+	
+	
+	
+	
+	Parent:	
+			<app-dept-details *ngFor="let item of deptsArray"
+										(onDeptRemove)="deptRemove_click_parent($event)"
+										[deptObj]="item">
+			</app-dept-details>
+
+			
+			
+	Child:
+		<div class="c1">
+			<h3 style="margin: 2px;color:Red;"> {{deptObj.dname}} </h3>
+			<u> Deptno :   {{deptObj.deptno}} </u>  <br/>
+			Location : <span style="color:Green;"> {{deptObj.loc}} </span>   <br/>
+			<a href="javascript:void(0);"  (click)="deptRemove_click_child(deptObj.deptno)">Remove</a>
+		</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+1. Create Product List component that accepts category as input parameter. Display the list of products belongs to the given category.
+
+<product-list   [category]=" 'Mobiles' "></product-list>	
+<product-list   [category]=" 'Electronics' "></product-list>	
+	
+	
+
+
+
+
+ 

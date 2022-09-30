@@ -1,0 +1,16 @@
+Tasks
+~~~~~
+
+1. Create Angular component called  emp to display employee details in table format
+
+	Employee Id  			:  54654564
+	Employee Name		:  Stephen	 
+	Employee Job			:  Manger
+	Employee Salary		:  75000
+	Employee Depo 		:	10
+			
+	--> Invoke the emp component from App component
+	
+2.  How to display images in Angular Components?
+
+3. What is *ngFor in Angular? How to use it?

@@ -1,0 +1,69 @@
+Deploying angular applications on web servers
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+What we need to deploy?
+
+1.   deploy compiled *.js  files	(main.js)		----		all programming items (components, modules, pipes, .....)
+2.   [assets] 
+3.   index.html
+4.   supported *.js		
+
+
+
+
+How to generate production builds?
+	
+	>		ng build --prod		
+	>		ng build
+	
+	
+The above angular cli command will generate deployable files in a separate folder called "dist".	
+	
+	D:/RouteDemoApp/my-project> 
+				[src]
+				[dist]
+					[my-project]
+	
+	
+	
+	
+	
+	
+	
+Web Servers
+~~~~~~~~~~~~	
+
+---> copy  [my-project]  folder (under dist folder) into physical location of web server.
+--> You rename the folder if required. 
+ 
+	
+	1. IIS
+			Physical Location : C:\inetpub\wwwroot 
+			Virtual Address:		http://localhost
+			
+	2. Tomcat 
+	
+	3. XAAMP
+			Physical Location : C:\xampp\htdocs
+			Virtual Address:		http://localhost:1234\	
+	
+	
+
+
+Hint:
+--> Update <base> tag in index.html 
+
+			  <base href="/">		---  default
+			  <base href="">			---  we need to update 
+---------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+

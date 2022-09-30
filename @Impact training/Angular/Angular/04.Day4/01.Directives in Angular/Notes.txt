@@ -1,0 +1,144 @@
+Directives in Angular
+~~~~~~~~~~~~~~~~
+
+Types of Directives
+		 Components directives
+		 Structural directives
+		 Attribute directives
+
+
+ Components directives
+ ~~~~~~~~~~~~~~~~~~~~
+	--> Every component in angular is consider as directive.
+	--> These comes under component directive.	
+ 
+	Eg:		<app-emps>, <app-root>, ...
+ 
+
+ Structural directives
+ ~~~~~~~~~~~~~~~~~
+	 --> Responsible for HTML layout.
+	--> Angular manipulates the DOM with structural directives.
+	--> Change the DOM by adding and removing DOM elements.
+	Eg:  *ngFor, *ngIf, *ngSwitchCase etc…
+
+
+Attribute Directives
+~~~~~~~~~~~~~~~~~
+--> Change the appearance or behavior of an element.
+--> Attribute directives are used as attributes of elements (tags).
+		Eg: ngModel , ngClass, routerLink
+	
+
+
+
+
+Built-in directives:	
+~~~~~~~~~~~~~~
+	*ngFor
+	*ngIf
+	 ngSwitch
+	*ngSwitchCase
+	*ngSwitchDefault	
+	
+	ngModel
+	ngClass
+	ngStyle
+		
+		
+		
+		
+Usage  ngStyle  and ngClass
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+	<tag  [ngStyle]="{ 'color' : 'red' }"> </tag>
+	
+	Syntax:	<tag  [ngClass]="{ 'cssClassName' : boolean }"> </tag>
+	
+	Eg:	<tag  [ngClass]="{ bg1 : true }"> </tag>
+			<tag  [ngClass]="{ 'btn btn-primary' : true }"> </tag>
+									
+			
+	*ngFor="let item of  arrayName; let i = index; let x = even; let y = odd;"		
+	
+	
+	index	---		even		---		odd
+	--------------------------------------------
+	0					true				false
+	1					false			true
+	2					true				false
+	3					false			true
+	4					true				false
+	5					false			true
+	
+	
+	
+	To apply css classes to alternate items:
+	
+	<tr  *ngFor="let item of  arrayName; let i = index; let x = even; let y = odd;"		
+			[ngClass]="{ bg1 : x, bg2 :  y }"> 
+			.............
+	</tr>
+	
+	
+	
+	
+	
+	
+	
+	
+		
+	item.course == 'Angular' ? 'Red' : 'Green'
+	
+
+[ngStyle]=" {   
+		'color': (item.course == 'Angular' ? 'Red' : 'Green'), 
+		'font-style': 'italic'}"
+		
+[ngStyle]="{ 'color': (item.course == 'Angular' ? 'Red' : 'Green'), 'font-style': 'italic'}"		
+		
+		
+Usage of  ngSwitch
+~~~~~~~~~~~~~~~~		
+
+<tag  [ngSwitch]=“variable">
+	<tag *ngSwitchCase=" value "> 	</tag>
+	<tag *ngSwitchCase=" value "> 	</tag>
+	……..
+	……..
+	<tag *ngSwitchDefault> </tag>
+</tag>
+
+		
+		
+		
+Example:
+
+-->  Display student details based on the selected mode
+
+		1. List Mode
+		2. Table Mode
+		3. Card Mode
+		
+		
+
+Assignment
+~~~~~~~~~~~
+
+1. display product details in multiple display modes as per the user choice.
+
+	a. 		Modes:
+			1.  Details	---	 Table
+			2.  Large Image  ---  Image, Product Name, Price
+			3.  Small Image		----		Image, Product Name, Category, Price 
+			4.  List		----		Product Name, price
+			
+			
+			
+			{pid: 5454, pname  : "Speakers",  ... ,  picture : "Image1.jpg"}
+			
+	b.   Images for each display mode.  
+				Change the mode in click  event.
+				Change the mode in mouse over event.
+
+	

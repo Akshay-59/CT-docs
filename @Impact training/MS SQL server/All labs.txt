@@ -1,0 +1,58 @@
+
+/*
+Create a seq and insert data into multiple tables from the seq.
+**Start with 5 maxvalue 10 minvalue 1 cycle
+*/
+================================================================
+--Lab
+--Register new bank account using stored procedure in the below table
+/*
+Table: AccountTypeMaster
+	.AccountTypeID
+	.AccountType (SAVING, CURRENT)
+
+Table: BankAccount
+	.AccountID PK IDENTITY
+	.AccountType 
+	.ConsumerName 
+	.BalanceAmount
+	.ModifiedDate
+*/
+--Consider the below rules while registering a bank account
+/*
+1. Every Account must have minimum balance of Rs. 10000
+2. Only account types available in AccountTypeMaster are allowed while registeration
+3. ModifiedDate must be not a future date
+4. CustomerName must not be alphanumeric
+*/
+
+
+--LAB on Functions:: Insert prime numbers from 1 to 1000 in a table. Create a function to check if a number is prime or not
+==========================================================================================================================
+/*
+Lab: Suppose you have two tables:
+Tab1: CodeQuantityMaster (CodeID, Code, Quantity)
+CodeID Code Quantity
+111 WRIUPI 10
+112 S20@QO 15
+113 HKP#4E 12
+114 OYT$7R 50
+115 JJ**L25 25Tab2: TestProduct (ProductID,ProductName, Color, Code)
+**Note: Fill some sample data in TestProductTable using the below query
+INSERT INTO TestProduct(ProductID,ProductName,Color)
+SELECT ProductID,Name,Color FROM Production.ProductAs a sql dveloper you are asked to update code against each product in TestProduct table.
+The value of code should come from CodeQuantityMaster table for the no. of products mentioned in Quantity column of
+CodeQuantityMaster. Reapeat the codes from intital one after all the codes are used.
+*/
+
+
+/*
+LAB:::
+Explore and document:
+a. What are Analytical functions. Document Description and examples on any 5 analytical functions
+b. What are grouping sets with examples and variations
+c. Transactions and Isolataion levels + Locks
+d. how do we use inserted and deleted tables outside of trigger (**Hint: Use OUTPUT clause)
+e. What are SET operations in SQL (UNION,UNION ALL, INTERSECT, MINUS)
+*/
+=======================================================================================================================

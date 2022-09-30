@@ -1,0 +1,19 @@
+Write unit test cases for parent-child components
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Dev:
+	--> Create ProductList and ProductDetails components
+	--> Add Input/output properties as per the requirements 
+	
+	(Ref:  angular Day2 assignment)
+	
+	
+Unit Tests
+~~~~~~~~
+		1.  Test child component can access
+		2.   Get all child components and verify the count
+		3.   Access child class properties
+		4.   Trigger child class events. 
+		
+		

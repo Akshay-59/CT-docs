@@ -1,0 +1,19 @@
+<hr />
+<div class="row">
+  <div class="col-sm-3">
+    <div class="card">
+      <div class="card-body" *ngFor="let appoint of appointments">
+        <h3 class="card-title"><b>View Appointment</b></h3>
+        <p class="card-text">
+          <b>Name</b> : {{ appoint.name }}<br />
+          <b>Start Appointment Time</b> : {{ appoint.startAppointmentTime
+          }}<br />
+          <b>End appointment time</b> : {{ appoint.endAppointmentTime }}<br />
+          <b>Reason of Visit</b> : {{ appoint.reasonOfVisit }}
+        </p>
+        <a href="#" class="button">Edit</a> &nbsp;&nbsp;
+        <a href="#" class="button">Delete</a>
+      </div>
+    </div>
+  </div>
+</div>

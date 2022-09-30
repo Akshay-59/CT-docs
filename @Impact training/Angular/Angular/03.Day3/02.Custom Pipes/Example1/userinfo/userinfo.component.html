@@ -1,0 +1,26 @@
+<h3  align="center">Developing Custom Pipes in Angular</h3>
+<hr/>
+
+<h3>
+    User Name  :  {{userObj1.uname}}  <br/>
+    User Gender  :  {{userObj1.gender | genderpipe | uppercase    }}
+</h3>
+<hr/>
+<h3>
+  User Name  :  {{userObj2.uname}}  <br/>
+  User Gender  :  {{userObj2.gender | genderpipe }}
+</h3>
+
+
+<hr/>
+
+<table border="2" width="200">
+   <tr>
+       <th>User Name</th>
+       <th>Gender</th>
+   </tr>
+   <tr *ngFor="let user of usersArray">
+       <td>{{user.uname }}</td>
+       <td>{{user.gender | genderpipe  }}</td>
+   </tr>
+</table>
